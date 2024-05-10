@@ -30,9 +30,15 @@ namespace ClientLibrary.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public Task<LoginResponse> SignInAsync(Login user)
+        public async Task<LoginResponse> SignInAsync(Login user)
         {
-            throw new NotImplementedException();
+            var httpClient = getHttpClient.GetPublicHttpClient();
+            var result = await httpClient.PostAsJsonAsync($"{AuthUrl}/login", user);
+            if (!result.IsSuccessStatusCode)
+            {
+                return new LoginResponse(false, "Error");
+            }
+            return await result.Content.ReadFromJsonAsync<LoginResponse>();
         }
 
         public async Task<WeatherForecast[]> GetWeatherForecast()
