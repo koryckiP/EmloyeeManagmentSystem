@@ -1,9 +1,4 @@
-using Blazored.LocalStorage;
 using Client;
-using ClientLibrary.Helpers;
-using ClientLibrary.Services.Contracts;
-using ClientLibrary.Services.Implementations;
-using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

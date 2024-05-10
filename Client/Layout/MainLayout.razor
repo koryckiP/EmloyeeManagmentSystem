@@ -1,10 +1,4 @@
-﻿@using BaseLibrary.DTOs
-@using ClientLibrary.Helpers
-@using Microsoft.AspNetCore.Components.Authorization
-@inject AuthenticationStateProvider AuthStateProvider
-@inject NavigationManager NavManager
-@inherits LayoutComponentBase
-
+﻿@inherits LayoutComponentBase
 <div class="page">
     <div class="sidebar">
         <NavMenu />
@@ -28,12 +22,3 @@
         </article>
     </main>
 </div>
-@code {
-    private async Task LogoutClicked()
-    {
-        var logoutModel = new UserSession();
-        var customAuthStateProvider = (CustomAuthStateProvider)AuthStateProvider;
-        await customAuthStateProvider.UpdateAuthenticationState(logoutModel);
-        NavManager.NavigateTo("/", forceLoad: true);
-    }
-}

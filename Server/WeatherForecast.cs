@@ -1,4 +1,4 @@
-namespace BaseLibrary.DTOs
+namespace Server
 {
     public class WeatherForecast
     {
